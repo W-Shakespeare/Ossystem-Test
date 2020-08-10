@@ -1,0 +1,135 @@
+header {
+  position: relative;
+  height: 120px;
+  border: 2px solid gainsboro;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
+}
+.change {
+  position: absolute;
+  left: 20px;
+}
+
+.line1,
+.line2,
+.line3 {
+  width: 35px;
+  height: 2px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .line1 {
+  transform: rotate(-45deg) translate(-4px, 5px);
+  transform: rotate(-45deg) translate(-4px, 5px);
+}
+
+.change .line2 {
+  opacity: 0;
+}
+
+.change .line3 {
+  transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+nav a {
+  outline: none;
+  text-decoration: none;
+}
+nav ul {
+  list-style: none;
+}
+nav li {
+  padding: 3px;
+}
+
+.logo {
+  position: absolute;
+  right: 110px;
+  opacity: 0.8;
+  width: 100px;
+  /* height: 105px; */
+}
+.authorization {
+  position: absolute;
+  right: 30px;
+}
+.login {
+  width: 60px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 20%;
+  background-color: aliceblue;
+  outline: none;
+}
+.logout {
+  width: 60px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 20%;
+  background-color: lightcoral;
+  outline: none;
+}
+nav {
+  position: absolute;
+  left: 65px;
+  top: 25px;
+}
+
+@media (max-width: 522px) {
+  .logo {
+    width: 80px;
+  }
+  nav {
+    top: 30px;
+    left: 55px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 460px) {
+  .logo {
+    right: 100px;
+    width: 70px;
+  }
+  nav {
+    left: 45px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 425px) {
+  .authorization {
+    top: 80px;
+  }
+
+  .login {
+    width: 60px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 20%;
+    background-color: aliceblue;
+    outline: none;
+  }
+  .logout {
+  }
+
+  .logo {
+    top: -20px;
+    right: 30px;
+    width: 65px;
+  }
+  nav {
+    left: 30px;
+    font-size: 13px;
+  }
+}

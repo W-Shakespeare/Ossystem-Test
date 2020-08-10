@@ -1,0 +1,271 @@
+.processorCard {
+  width: 200px;
+  height: 250px;
+  /* background-color: whitesmoke; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 10%;
+  transition: all 0.9s ease 0s;
+}
+.processorCard button {
+  width: 70px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 20%;
+  outline: none;
+  transition: all 0.9s ease 0s;
+}
+
+.intel:hover {
+  transition: all 0.9s ease 0s;
+  background-color: rgba(135, 206, 250, 0.275);
+  border: 1px solid white;
+}
+.intel button:hover {
+  background-color: rgba(135, 206, 250, 0.5);
+  transition: all 0.9s ease 0s;
+}
+.amd:hover {
+  background-color: rgba(240, 128, 128, 0.253);
+  transition: all 0.9s ease 0s;
+  border: 1px solid white;
+}
+.amd button:hover {
+  background-color: rgba(240, 128, 128, 0.553);
+  transition: all 0.9s ease 0s;
+}
+
+.processorCard img {
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 1440px) {
+  .processorCard {
+    width: 205px;
+  }
+}
+@media (max-width: 1385px) {
+  .processorCard {
+    width: 200px;
+  }
+}
+@media (max-width: 1350px) {
+  .processorCard {
+    width: 230px;
+  }
+}
+@media (max-width: 1302px) {
+  .processorCard {
+    width: 220px;
+  }
+}
+@media (max-width: 1250px) {
+  .processorCard {
+    width: 260px;
+  }
+}
+@media (max-width: 1175px) {
+  .processorCard {
+    width: 240px;
+    height: 290px;
+  }
+  .processorCard button {
+    width: 75px;
+    height: 35px;
+  }
+}
+@media (max-width: 1105px) {
+  .processorCard {
+    width: 230px;
+    height: 280px;
+  }
+  .processorCard button {
+    width: 70px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 1062px) {
+  .processorCard {
+    width: 220px;
+    height: 270px;
+  }
+  .processorCard button {
+    width: 65px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .processorCard {
+    width: 280px;
+    height: 330px;
+  }
+  .processorCard button {
+    width: 80px;
+    height: 40px;
+  }
+}
+@media (max-width: 964px) {
+  .processorCard {
+    width: 270px;
+    height: 320px;
+  }
+  .processorCard button {
+    width: 75px;
+    height: 35px;
+  }
+}
+@media (max-width: 930px) {
+  .processorCard {
+    width: 250px;
+    height: 300px;
+  }
+  .processorCard button {
+    width: 70px;
+    height: 30px;
+  }
+}
+@media (max-width: 868px) {
+  .processorCard {
+    width: 230px;
+    height: 280px;
+  }
+  .processorCard button {
+    width: 65px;
+    height: 25px;
+  }
+}
+@media (max-width: 816px) {
+  .processorCard {
+    width: 210px;
+    height: 260px;
+  }
+  .processorCard button {
+    width: 60px;
+    height: 20px;
+  }
+}
+@media (max-width: 752px) {
+  .processorCard {
+    width: 200px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 710px) {
+  .processorCard {
+    width: 280px;
+    height: 330px;
+  }
+  .processorCard button {
+    width: 80px;
+    height: 40px;
+  }
+}
+@media (max-width: 678px) {
+  .processorCard {
+    width: 260px;
+    height: 310px;
+  }
+  .processorCard button {
+    width: 75px;
+    height: 35px;
+  }
+}
+@media (max-width: 610px) {
+  .processorCard {
+    width: 240px;
+    height: 290px;
+  }
+  .processorCard button {
+    width: 75px;
+    height: 30px;
+  }
+}
+@media (max-width: 565px) {
+  .processorCard {
+    width: 220px;
+    height: 270px;
+  }
+  .processorCard button {
+    width: 70px;
+    height: 25px;
+  }
+}
+@media (max-width: 522px) {
+  .processorCard {
+    width: 200px;
+    height: 250px;
+  }
+  .processorCard button {
+    width: 65px;
+    height: 20px;
+  }
+}
+@media (max-width: 488px) {
+  .processorCard {
+    width: 300px;
+    height: 400px;
+    font-size: 18px;
+  }
+  .processorCard img {
+    width: 150px;
+    height: 150px;
+  }
+  .processorCard button {
+    width: 95px;
+    height: 55px;
+  }
+}
+
+@media (max-width: 400px) {
+  .processorCard {
+    width: 280px;
+    height: 380px;
+    font-size: 17px;
+  }
+  .processorCard img {
+    width: 140px;
+    height: 140px;
+  }
+  .processorCard button {
+    width: 90px;
+    height: 50px;
+  }
+}
+@media (max-width: 370px) {
+  .processorCard {
+    width: 260px;
+    height: 360px;
+    font-size: 17px;
+  }
+  .processorCard img {
+    width: 130px;
+    height: 130px;
+  }
+  .processorCard button {
+    width: 85px;
+    height: 45px;
+  }
+}
+@media (max-width: 330px) {
+  .processorCard {
+    width: 240px;
+    height: 340px;
+    font-size: 16px;
+  }
+  .processorCard img {
+    width: 120px;
+    height: 120px;
+  }
+  .processorCard button {
+    width: 80px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,86 @@
+.processorListInformationWrapper {
+  margin: 5px;
+  border: 1px solid gainsboro;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease 0s;
+}
+
+.processorListInformationWrapper:hover {
+  background-color: gray;
+  transition: all 1s ease 0s;
+}
+
+.processorListInformationWrapper button {
+  width: 120px;
+  height: 40px;
+  outline: none;
+  border-radius: 20%;
+  background-color: rgba(255, 0, 0, 0.137);
+}
+.processorListInformation {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* flex-direction: row; */
+}
+
+.item1 {
+  text-align: center;
+  grid-area: item1;
+}
+.item2 {
+  text-align: center;
+  grid-area: item2;
+}
+.item3 {
+  text-align: center;
+  grid-area: item3;
+}
+.item4 {
+  display: grid;
+  align-items: center;
+  grid-area: item4;
+}
+
+.processorListInformationWrapper {
+  font-size: 14px;
+}
+.processorListInformationWrapper button {
+  font-size: 11px;
+  width: 100px;
+  height: 30px;
+}
+@media (max-width: 488px) {
+  .processorListInformationWrapper {
+    font-size: 12px;
+  }
+  .processorListInformationWrapper button {
+    font-size: 10px;
+    width: 90px;
+    height: 27px;
+  }
+}
+
+@media (max-width: 522px) {
+  .processorListInformation {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "item1 item1 item2 item2"
+      "item3 item3 item4 item4";
+    justify-items: center;
+    align-self: center;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 370px) {
+  .processorListInformation {
+    font-size: 12px;
+  }
+}
