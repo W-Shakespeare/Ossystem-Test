@@ -1,20 +1,13 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import "./style.css";
-import { connect } from "react-redux";
 import { deleteProcessor } from "../redux/actions/actions";
 import Processor from "./Processor";
-const ProcessorContainer = ({
-  dispatch,
-  processorArr,
-  isAdmin,
-  key,
-  id,
-  name,
-  img,
-  description,
-  price,
-}) => {
+const ProcessorContainer = ({ key, id, name, img, description, price }) => {
+  const dispatch = useDispatch();
+  const isAdmin = useSelector((state) => state.catalog.isAdmin);
+  const processorArr = useSelector((state) => state.catalog.processorArr);
   const deleteSelectedProcessor = (id) => {
     dispatch(deleteProcessor(id));
   };
@@ -35,23 +28,13 @@ const ProcessorContainer = ({
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    processorArr: state.catalog.processor,
-    isAdmin: state.catalog.isAdmin,
-  };
-}
-
 ProcessorContainer.propTypes = {
-  dispatch: PropTypes.func,
   id: PropTypes.number,
   key: PropTypes.number,
   name: PropTypes.string,
   img: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.string,
-  processorArr: PropTypes.array,
-  isAdmin: PropTypes.bool,
 };
 
-export default connect(mapStateToProps, null)(ProcessorContainer);
+export default ProcessorContainer;
