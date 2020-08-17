@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./style.css";
 import { deleteProcessor } from "../redux/actions/actions";
 import Processor from "./Processor";
-const ProcessorContainer = ({ key, id, name, img, description, price }) => {
+const ProcessorContainer = ({ id, name, img, description, price }) => {
   const dispatch = useDispatch();
   const isAdmin = useSelector((state) => state.catalog.isAdmin);
   const processorArr = useSelector((state) => state.catalog.processorArr);
@@ -14,7 +14,6 @@ const ProcessorContainer = ({ key, id, name, img, description, price }) => {
   return (
     <>
       <Processor
-        key={key}
         id={id}
         name={name}
         img={img}
@@ -30,7 +29,6 @@ const ProcessorContainer = ({ key, id, name, img, description, price }) => {
 
 ProcessorContainer.propTypes = {
   id: PropTypes.number,
-  key: PropTypes.number,
   name: PropTypes.string,
   img: PropTypes.string,
   description: PropTypes.string,
