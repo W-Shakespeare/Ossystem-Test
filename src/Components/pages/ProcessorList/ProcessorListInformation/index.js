@@ -8,6 +8,8 @@ const ProcessorListInformationContainer = () => {
   const processorArr = useSelector((state) => state.catalog.processor);
   const dispatch = useDispatch();
 
+  const isAdmin = useSelector((state) => state.catalog.isAdmin);
+
   const [sumOfPrice, setSumOfPrice] = useState(null);
   const [average, setAverage] = useState(null);
   const [amountItems, setAmountItems] = useState(processorArr.length);
@@ -28,7 +30,9 @@ const ProcessorListInformationContainer = () => {
     return result;
   };
   const calculateAverage = (sumOfPrice) => {
-    setAverage((sumOfPrice / processorArr.length).toFixed(2));
+    sumOfPrice == 0
+      ? setAverage("0")
+      : setAverage((sumOfPrice / processorArr.length).toFixed(2));
   };
 
   const willClearAllProcessor = () => {
@@ -41,6 +45,7 @@ const ProcessorListInformationContainer = () => {
         sumOfPrice={sumOfPrice}
         average={average}
         amountItems={amountItems}
+        isAdmin={isAdmin}
         willClearAllProcessor={willClearAllProcessor}
       />
     </>

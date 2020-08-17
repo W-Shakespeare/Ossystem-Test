@@ -5,6 +5,7 @@ const ProcessorListInformation = ({
   sumOfPrice,
   average,
   amountItems,
+  isAdmin,
   willClearAllProcessor,
 }) => {
   return (
@@ -13,7 +14,11 @@ const ProcessorListInformation = ({
         <p className="item1">{`Общее кол-во товаров ${amountItems}`}</p>
         <p className="item2">{`Общая сумма ${sumOfPrice} грн`}</p>
         <p className="item3">{`Средняя цена ${average} грн`}</p>
-        <button className="item4" onClick={willClearAllProcessor}>
+        <button
+          className="item4"
+          onClick={willClearAllProcessor}
+          disabled={!isAdmin}
+        >
           Очистить каталог
         </button>
       </div>
@@ -22,8 +27,9 @@ const ProcessorListInformation = ({
 };
 ProcessorListInformation.propTypes = {
   sumOfPrice: PropTypes.number,
-  average: PropTypes.string,
+  average: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   amountItems: PropTypes.number,
+  isAdmin: PropTypes.bool,
   willClearAllProcessor: PropTypes.func,
 };
 
