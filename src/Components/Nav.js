@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ className }) => {
   return (
-    <nav>
+    <nav className={className}>
       <ul>
         <NavLink className="nav-link" to="/">
           <li>Каталог</li>

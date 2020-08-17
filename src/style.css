@@ -12,13 +12,14 @@ header {
   display: block;
   cursor: pointer;
   position: absolute;
+  /* position: relative; */
   left: 20px;
 }
 .change {
+  /* position: relative; */
   position: absolute;
   left: 20px;
 }
-
 .line1,
 .line2,
 .line3 {
@@ -43,15 +44,63 @@ header {
   transform: rotate(45deg) translate(-8px, -8px);
 }
 
-nav a {
+.change .appear {
+  opacity: 1;
+  /* top: -45px; */
+  transition: all 0.5s ease 0s;
+}
+
+.disappear {
+  position: absolute;
+  left: 65px;
+  top: -200px;
+  transition: all 0.4s ease 0s;
+  opacity: 0;
+}
+.appear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  width: 500px;
+  height: 120px;
+  position: absolute;
+  left: 65px;
+  transition: all 0.4s ease 0s;
+}
+
+.appear a {
   outline: none;
   text-decoration: none;
 }
-nav ul {
+.appear ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   list-style: none;
 }
-nav li {
-  padding: 3px;
+.appear li {
+  padding: 0;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  /* padding: 3px; */
+  width: 247px;
+  height: 40px;
+  border: 1px solid gainsboro;
+  color: gray;
+  /* background-color: rgb(167, 164, 164); */
+}
+.appear li:hover {
+  padding: 0;
+  border: 1px solid white;
+  /* background-color: lightblue; */
 }
 
 .logo {
@@ -81,30 +130,85 @@ nav li {
   background-color: lightcoral;
   outline: none;
 }
-nav {
-  position: absolute;
-  left: 65px;
-  top: 25px;
+
+@media (max-width: 868px) {
+  .appear {
+    width: 400px;
+    left: 70px;
+  }
+  .appear li {
+    width: 220px;
+  }
+}
+
+@media (max-width: 816px) {
+  .appear {
+    width: 350px;
+    left: 70px;
+  }
+  .appear li {
+    font-size: 14px;
+    width: 175px;
+  }
+  .line1,
+  .line2,
+  .line3 {
+    width: 30px;
+  }
+}
+
+@media (max-width: 710px) {
+  .appear {
+    width: 300px;
+  }
+  .appear li {
+    font-size: 13px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 678px) {
+  .appear {
+    width: 280px;
+    left: 50px;
+  }
+  .appear li {
+    font-size: 12px;
+    width: 140px;
+  }
+}
+
+@media (max-width: 610px) {
+  .appear {
+    width: 300px;
+    left: 0px;
+  }
+  .appear ul {
+    flex-direction: column;
+  }
+  .appear li {
+    font-size: 13px;
+    width: 150px;
+  }
 }
 
 @media (max-width: 522px) {
   .logo {
     width: 80px;
   }
-  nav {
-    top: 30px;
-    left: 55px;
-    font-size: 14px;
+}
+
+@media (max-width: 488px) {
+  .appear {
+    width: 300px;
+    left: -10px;
   }
 }
+
 @media (max-width: 460px) {
   .logo {
     right: 100px;
     width: 70px;
-  }
-  nav {
-    left: 45px;
-    font-size: 13px;
   }
 }
 @media (max-width: 425px) {
@@ -113,7 +217,7 @@ nav {
   }
 
   .login {
-    width: 60px;
+    width: 120px;
     height: 30px;
     border: 1px solid white;
     border-radius: 20%;
@@ -121,15 +225,53 @@ nav {
     outline: none;
   }
   .logout {
+    width: 120px;
   }
 
   .logo {
     top: -20px;
-    right: 30px;
+    right: 55px;
     width: 65px;
   }
-  nav {
-    left: 30px;
-    font-size: 13px;
+}
+
+@media (max-width: 425px) {
+  .appear {
+    width: 100%;
+    position: unset;
+  }
+  .appear li {
+    font-size: 15px;
+    width: 300px;
+  }
+  .appear ~ .authorization .login {
+    display: none;
+  }
+  .appear ~ .authorization .logout {
+    display: none;
+  }
+
+  .appear ~ .logo {
+    display: none;
+  }
+
+  .disappear ~ .authorization {
+    position: unset;
+  }
+  .disappear ~ .authorization .login {
+    width: 180px;
+  }
+  .disappear ~ .authorization .logout {
+    width: 180px;
+  }
+  header {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+
+  .disappear ~ .logo {
+    height: 80px;
+    position: unset;
   }
 }
