@@ -130,6 +130,16 @@ header {
   background-color: lightcoral;
   outline: none;
 }
+.errorBoundary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.logoError {
+  height: 300px;
+}
 
 @media (max-width: 868px) {
   .appear {
