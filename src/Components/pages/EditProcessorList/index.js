@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
 import EditProcessorList from "./EditProcessorList";
-import { connect } from "react-redux";
 import { addProcessor } from "./redux/actions/actions";
 
-const EditProcessorListContainer = ({ dispatch, isAdmin }) => {
+const EditProcessorListContainer = () => {
+  const dispatch = useDispatch();
+  const isAdmin = useSelector((state) => state.catalog.isAdmin);
+
   const [formValue, setFormValue] = useState({
-    id: undefined,
-    name: undefined,
-    description: undefined,
-    price2: undefined,
-    src: undefined,
+    id: "",
+    name: "",
+    description: "",
+    price2: "",
+    src: "",
     imgLoad: true,
   });
-
-  const [imgLoad, setImgLoad] = useState(true);
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,8 +33,8 @@ const EditProcessorListContainer = ({ dispatch, isAdmin }) => {
         ...prev,
         src: imagePreviewUrl,
         id: Date.now(),
+        imgLoad: false,
       }));
-      setImgLoad(false);
     };
 
     reader.readAsDataURL(file);
@@ -43,6 +43,14 @@ const EditProcessorListContainer = ({ dispatch, isAdmin }) => {
   const willAddProcessor = (e) => {
     e.preventDefault();
     dispatch(addProcessor(formValue));
+    setFormValue({
+      id: "",
+      name: "",
+      description: "",
+      price2: "",
+      src: "",
+      imgLoad: true,
+    });
   };
   return (
     <>
@@ -53,22 +61,11 @@ const EditProcessorListContainer = ({ dispatch, isAdmin }) => {
         onInputChange={onInputChange}
         willAddProcessor={willAddProcessor}
         handleImageChange={handleImageChange}
-        imgLoad={imgLoad}
+        imgLoad={formValue.imgLoad}
         isAdmin={isAdmin}
       />
     </>
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    isAdmin: state.catalog.isAdmin,
-  };
-}
-
-EditProcessorListContainer.propTypes = {
-  dispatch: PropTypes.func,
-  isAdmin: PropTypes.bool,
-};
-
-export default connect(mapStateToProps, null)(EditProcessorListContainer);
+export default EditProcessorListContainer;

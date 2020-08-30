@@ -10,12 +10,13 @@ const Header = () => {
   };
   return (
     <header>
+      <Nav className={!hideMenu ? "appear" : "disappear"} />
       <div onClick={menuListAppear} className={hideMenu ? "menu" : "change"}>
         <div className="line1"></div>
         <div className="line2"></div>
         <div className="line3"></div>
       </div>
-      <Nav />
+
       <AuthorizationStatus />
       <ReactLogo className="logo" />
     </header>

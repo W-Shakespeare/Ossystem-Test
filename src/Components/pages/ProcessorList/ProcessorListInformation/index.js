@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearAllProcessors } from "../redux/actions/actions";
 import ProcessorListInformation from "./ProcessorListInformation";
 import "./style.css";
 
-const ProcessorListInformationContainer = ({ dispatch, processorArr }) => {
+const ProcessorListInformationContainer = () => {
+  const processorArr = useSelector((state) => state.catalog.processor);
+  const dispatch = useDispatch();
+
+  const isAdmin = useSelector((state) => state.catalog.isAdmin);
+
   const [sumOfPrice, setSumOfPrice] = useState(null);
   const [average, setAverage] = useState(null);
   const [amountItems, setAmountItems] = useState(processorArr.length);
@@ -26,7 +30,9 @@ const ProcessorListInformationContainer = ({ dispatch, processorArr }) => {
     return result;
   };
   const calculateAverage = (sumOfPrice) => {
-    setAverage((sumOfPrice / processorArr.length).toFixed(2));
+    sumOfPrice == 0
+      ? setAverage("0")
+      : setAverage((sumOfPrice / processorArr.length).toFixed(2));
   };
 
   const willClearAllProcessor = () => {
@@ -39,24 +45,11 @@ const ProcessorListInformationContainer = ({ dispatch, processorArr }) => {
         sumOfPrice={sumOfPrice}
         average={average}
         amountItems={amountItems}
+        isAdmin={isAdmin}
         willClearAllProcessor={willClearAllProcessor}
       />
     </>
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    processorArr: state.catalog.processor,
-  };
-}
-
-ProcessorListInformationContainer.propTypes = {
-  dispatch: PropTypes.func,
-  processorArr: PropTypes.array,
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(ProcessorListInformationContainer);
+export default ProcessorListInformationContainer;

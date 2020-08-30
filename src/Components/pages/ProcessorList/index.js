@@ -1,24 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 import ProcessorList from "./ProcessorList";
 import "./style.css";
-import { connect } from "react-redux";
 
-const ProcessorListContainer = ({ processorArr }) => {
+const ProcessorListContainer = () => {
+  const processorArr = useSelector((state) => state.catalog.processor);
   return (
     <div className="processorListWrapper">
       <ProcessorList processorArr={processorArr} />
     </div>
   );
 };
-
-function mapStateToProps(state) {
-  return {
-    processorArr: state.catalog.processor,
-  };
-}
-
-ProcessorListContainer.propTypes = {
-  processorArr: PropTypes.array,
-};
-export default connect(mapStateToProps, null)(ProcessorListContainer);
+export default ProcessorListContainer;

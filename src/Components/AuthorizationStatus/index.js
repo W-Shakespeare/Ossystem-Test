@@ -1,10 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import AuthorizationStatus from "./AuthorizationStatus";
 import { changeAuthorizationStatus } from "../pages/ProcessorList/redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
-const AuthorizationStatusContainer = ({ dispatch, isAdmin, state }) => {
+const AuthorizationStatusContainer = () => {
+  const dispatch = useDispatch();
+  const isAdmin = useSelector((state) => state.catalog.isAdmin);
   const onChangeAuthorizationStatus = () => {
     dispatch(changeAuthorizationStatus());
   };
@@ -15,21 +16,4 @@ const AuthorizationStatusContainer = ({ dispatch, isAdmin, state }) => {
     />
   );
 };
-
-function mapStateToProps(state) {
-  return {
-    isAdmin: state.catalog.isAdmin,
-    state,
-  };
-}
-
-AuthorizationStatusContainer.propTypes = {
-  state: PropTypes.shape({
-    catalog: PropTypes.shape({
-      isAdmin: PropTypes.bool,
-      processor: PropTypes.array,
-    }),
-  }),
-};
-
-export default connect(mapStateToProps, null)(AuthorizationStatusContainer);
+export default AuthorizationStatusContainer;
